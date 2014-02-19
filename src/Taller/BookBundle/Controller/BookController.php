@@ -65,10 +65,12 @@ class BookController extends Controller
         }
 
         $editForm = $this->createForm(new BookType(), $book);
+        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BookBundle:Book:edit.html.twig', array(
             'book' => $book,
-            'edit_form' => $editForm->createView()
+            'delete_form' => $deleteForm->createView(),
+            'edit_form' => $editForm->createView(),
         ));
     }
 
@@ -158,5 +160,30 @@ class BookController extends Controller
      */
     public function deleteAction($id)
     {
+        $form = $this->createDeleteForm($id);
+        $request = $this->getRequest();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $book = $em->getRepository('BookBundle:Book')->find($id);
+
+            if (!$book) {
+                throw $this->createNotFoundException("the Book does not exist.");
+            }
+            $em->remove($book);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('book_index'));
+    }
+
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+        ;
     }
 }

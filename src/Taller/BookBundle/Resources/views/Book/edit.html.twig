@@ -1,0 +1,33 @@
+<h2>Edit Book - {{ book.title }}</h2>
+
+<form action="{{ path('book_update', {'id': book.id }) }}" method="post" {{ form_enctype(edit_form) }} accept-charset="utf-8">
+    <div>
+        {{ form_label(edit_form.image, 'Fotografía') }}
+        {{ form_errors(edit_form.image) }}
+
+        <img src="{{ asset('uploads/images/' ~ book.image ) }}" />
+
+        {{ form_label(edit_form.image, 'Modificar image') }}
+        {{ form_widget(edit_form.image) }}
+
+        <p class="help">Maximum size: 500 KB.</p>
+    </div>
+
+    {{ form_rest(edit_form) }}
+
+    <p>
+        <button type="submit">Save changes</button>
+    </p>
+</form>
+
+<ul>
+    <li>
+        <a href="{{ path('book_index') }}"> Back to list </a>
+    </li>
+    <li>
+        <form action="{{ path('book_delete', { 'id': book.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
