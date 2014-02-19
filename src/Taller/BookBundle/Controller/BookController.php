@@ -19,6 +19,14 @@ class BookController extends Controller
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entities = $em->getRepository('Taller\BookBundle\Entity\Book')->findAll();
+        return $this->render(
+                'BookBundle:Book:index.html.twig',
+                array(
+                    'entities' => $entities
+                )
+        );
     }
 
     /**
@@ -26,6 +34,13 @@ class BookController extends Controller
      *
      */
     public function addAction(){
+        $entity = new Book();
+        $form = $this->createForm(new BookType(), $entity);
+
+        return $this->render('BookBundle:Book:add.html.twig', array(
+            'entity' => $entity,
+            'form' => $form->createView()
+        ));
     }
 
     /**
@@ -50,6 +65,25 @@ class BookController extends Controller
      */
     public function createAction()
     {
+        $request = $this->getRequest();
+
+        $entity = new Book();
+        $form = $this->createForm(new BookType(), $entity);
+
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('book_index'));
+        }else{
+            return $this->render('BookBundle:Book:add.html.twig', array(
+                'entity' => $entity,
+                'form'   => $form->createView()
+            ));
+        }
     }
 
     /**

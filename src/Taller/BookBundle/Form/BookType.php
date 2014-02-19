@@ -13,11 +13,12 @@ class BookType extends AbstractType
             ->add('title')
             ->add('author')
             ->add('summary')
+            ->add('edition_date', 'birthday')
         ;
     }
 
     public function getName()
     {
-        return 'book';
+        return 'taller_bookbundle_booktype';
     }
 }

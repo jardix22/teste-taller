@@ -53,7 +53,7 @@ class Book
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,7 +76,7 @@ class Book
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -99,7 +99,7 @@ class Book
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -122,7 +122,7 @@ class Book
     /**
      * Get summary
      *
-     * @return string 
+     * @return string
      */
     public function getSummary()
     {
@@ -145,7 +145,7 @@ class Book
     /**
      * Get editionDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEditionDate()
     {

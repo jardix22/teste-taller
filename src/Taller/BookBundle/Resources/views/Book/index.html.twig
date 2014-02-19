@@ -1,1 +1,15 @@
-Hello
+<h2>Lista de Libros</h2>
+
+<section>
+    {% for entity in entities %}
+    <article>
+        <h3>{{ entity.title }}<small>{{ entity.author }} - {{ entity.editionDate|date("m/d/Y") }}</small></h3>
+        <p>{{ entity.summary }}</p>
+        <footer>
+            <a href="#" title="Delete">Delete</a>
+            <a href="#" title="Delete">Edit</a>
+        </footer>
+    </article>
+    {% endfor %}
+</section>
+

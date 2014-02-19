@@ -1,1 +1,5 @@
-Add
+<h2>Add Book</h2>
+<form action="{{ path('book_create') }}" method="post" accept-charset="utf-8" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <input type="submit" value="Guardar">
+</form>
