@@ -1,13 +1,43 @@
 // Set the global compass vars.
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: true;
-$legacy-support-for-mozilla: false;
+// $legacy-support-for-ie6: false;
+// $legacy-support-for-ie7: false;
+//$legacy-support-for-ie8: true;
+// $legacy-support-for-mozilla: false;
 // Import the normalize plugin
 
 // @import "normalize";
 
+$header-color: #497bad;
 
-html{
-    font: 100%/1.5 "Open Sans", sans-serif;
+#header{
+    background-color: $header-color;
+    height: 5px;
 }
+
+
+.book-list{
+    padding-left: 0px;
+}
+
+.book-item{
+    border: 1px solid #aaa;
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 5px;
+    position: relative;
+    width: 100%;
+
+    .edit-button{
+
+    }
+}
+
+.book-image{
+    float: left;
+    margin-right: 10px;
+
+    img{
+        width: 150px;
+    }
+}
+

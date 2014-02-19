@@ -3,19 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}| Taller{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/book/css/sass-bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('bundles/book/css/main.css') }}">
-        <!-- Google Fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
 
     </head>
     <body>
+        <header id="header" class="">
+
+        </header>
         <div class="container">
-            {% block body %}{% endblock %}
-            {% block javascripts %}{% endblock %}
+            <article class="row">
+                {% block article %}{% endblock %}
+            </article>
+            <footer class="row">
+            </footer>
         </div>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

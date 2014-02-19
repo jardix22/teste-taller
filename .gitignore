@@ -9,3 +9,6 @@
 /vendor/
 /bin/
 /composer.phar
+
+### Static assets pipeline artifacts
+*.scssc

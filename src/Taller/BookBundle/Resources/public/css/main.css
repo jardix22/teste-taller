@@ -1,0 +1,30 @@
+/* line 12, ../../compass/sass/main.scss */
+#header {
+  background-color: #497bad;
+  height: 5px;
+}
+
+/* line 18, ../../compass/sass/main.scss */
+.book-list {
+  padding-left: 0px;
+}
+
+/* line 22, ../../compass/sass/main.scss */
+.book-item {
+  border: 1px solid #aaa;
+  display: inline-block;
+  list-style: none;
+  margin-bottom: 5px;
+  position: relative;
+  width: 100%;
+}
+
+/* line 35, ../../compass/sass/main.scss */
+.book-image {
+  float: left;
+  margin-right: 10px;
+}
+/* line 39, ../../compass/sass/main.scss */
+.book-image img {
+  width: 150px;
+}

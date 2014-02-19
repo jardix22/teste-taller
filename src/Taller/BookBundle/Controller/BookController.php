@@ -65,12 +65,12 @@ class BookController extends Controller
         }
 
         $editForm = $this->createForm(new BookType(), $book);
-        $deleteForm = $this->createDeleteForm($id);
+        //$deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BookBundle:Book:edit.html.twig', array(
             'book' => $book,
-            'delete_form' => $deleteForm->createView(),
             'edit_form' => $editForm->createView(),
+            //'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -120,6 +120,7 @@ class BookController extends Controller
         }
 
         $editForm = $this->createForm(new BookType(), $book);
+        //$deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
 
@@ -150,7 +151,8 @@ class BookController extends Controller
 
         return $this->render('BookBundle:Book:edit.html.twig', array(
             'book' => $book,
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            //'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -183,7 +185,7 @@ class BookController extends Controller
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
-            ->getForm()
+            ->getForm();
         ;
     }
 }
