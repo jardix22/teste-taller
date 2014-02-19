@@ -3,7 +3,6 @@
 namespace Taller\BookBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Taller\BookBundle\Entity\Book as Book;
 use Taller\BookBundle\Form\BookType;
 
@@ -57,6 +56,20 @@ class BookController extends Controller
      */
     public function editAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $book = $em->getRepository('BookBundle:Book')->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException('the Book does not exist.');
+        }
+
+        $editForm = $this->createForm(new BookType(), $book);
+
+        return $this->render('BookBundle:Book:edit.html.twig', array(
+            'book' => $book,
+            'edit_form' => $editForm->createView()
+        ));
     }
 
     /**
@@ -96,6 +109,47 @@ class BookController extends Controller
      */
     public function updateAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $book = $em->getRepository('BookBundle:Book')->find($id);
+
+        if (!$book) {
+            throw $this->createNotFoundException('Book doest not exist.');
+        }
+
+        $editForm = $this->createForm(new BookType(), $book);
+
+        $request = $this->getRequest();
+
+        // Save the path directory of the original image
+        $pathOriginalImage = $editForm->getData()->getImage();
+
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            if (null == $book->getImage()) {
+                // the user don't change the original image
+                $book->setImage($pathOriginalImage);
+            } else {
+                // the user changed the image: copy the upload image and save the new path directory
+                $book->loadImage($this->container->getParameter('taller.directory.images'));
+
+                // remove the old image
+                if (!empty($pathOriginalImage)) {
+                    $fs = new Filesystem();
+                    $fs->remove($this->container->getParameter('taller.directory.images').$pathOriginalImage);
+                }
+            }
+            $em->persist($book);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('book_edit', array('id' => $id)));
+        }
+
+        return $this->render('BookBundle:Book:edit.html.twig', array(
+            'book' => $book,
+            'edit_form' => $editForm->createView()
+        ));
     }
 
     /**

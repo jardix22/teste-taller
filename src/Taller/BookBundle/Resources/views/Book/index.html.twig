@@ -3,14 +3,12 @@
 <section>
     {% for book in books %}
     <article>
-        <h3>{{ book.title }}<small>{{ book.author }} - {{ book.editionDate|date("m/d/Y") }}</small></h3>
-        <img src="{{ asset('uploads/images/' ~ book.image) }}">
+        <h3>{{ book.title }} <small>{{ book.author }} - {{ book.editionDate|date("m/d/Y") }}</small></h3>
+        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
         <p>{{ book.summary }}</p>
         <footer>
-            <a href="#" title="Delete">Delete</a>
-            <a href="#" title="Delete">Edit</a>
+            <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit">Editar</a>
         </footer>
     </article>
     {% endfor %}
 </section>
-
