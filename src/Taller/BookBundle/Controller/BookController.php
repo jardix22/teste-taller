@@ -3,7 +3,6 @@
 namespace Taller\BookBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Taller\BookBundle\Entity\Book as Book;
 use Taller\BookBundle\Form\BookType;
 
@@ -132,7 +131,7 @@ class BookController extends Controller
                 // the user don't change the original image
                 $book->setImage($pathOriginalImage);
             } else {
-                // the user changed the image: copy yhhe upload image and save the new directory path
+                // the user changed the image: copy the upload image and save the new path directory
                 $book->loadImage($this->container->getParameter('taller.directory.images'));
 
                 // remove the old image
