@@ -67,3 +67,8 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Global parameters of dependency of container
+parameters:
+    taller.directory.images: %kernel.root_dir%/../web/uploads/images
+

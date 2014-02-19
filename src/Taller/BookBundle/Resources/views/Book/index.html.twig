@@ -1,10 +1,11 @@
 <h2>Lista de Libros</h2>
 
 <section>
-    {% for entity in entities %}
+    {% for book in books %}
     <article>
-        <h3>{{ entity.title }}<small>{{ entity.author }} - {{ entity.editionDate|date("m/d/Y") }}</small></h3>
-        <p>{{ entity.summary }}</p>
+        <h3>{{ book.title }}<small>{{ book.author }} - {{ book.editionDate|date("m/d/Y") }}</small></h3>
+        <img src="{{ asset('uploads/images/' ~ book.image) }}">
+        <p>{{ book.summary }}</p>
         <footer>
             <a href="#" title="Delete">Delete</a>
             <a href="#" title="Delete">Edit</a>

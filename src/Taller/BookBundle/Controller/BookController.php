@@ -20,11 +20,11 @@ class BookController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $entities = $em->getRepository('Taller\BookBundle\Entity\Book')->findAll();
+        $books = $em->getRepository('Taller\BookBundle\Entity\Book')->findAll();
         return $this->render(
                 'BookBundle:Book:index.html.twig',
                 array(
-                    'entities' => $entities
+                    'books' => $books
                 )
         );
     }
@@ -34,11 +34,11 @@ class BookController extends Controller
      *
      */
     public function addAction(){
-        $entity = new Book();
-        $form = $this->createForm(new BookType(), $entity);
+        $book = new Book();
+        $form = $this->createForm(new BookType(), $book);
 
         return $this->render('BookBundle:Book:add.html.twig', array(
-            'entity' => $entity,
+            'book' => $book,
             'form' => $form->createView()
         ));
     }
@@ -67,20 +67,24 @@ class BookController extends Controller
     {
         $request = $this->getRequest();
 
-        $entity = new Book();
-        $form = $this->createForm(new BookType(), $entity);
+        $book = new Book();
+        $form = $this->createForm(new BookType(), $book);
 
         $form->bind($request);
 
         if ($form->isValid()) {
+
+            // Copy the image uploaded and save the directory path
+            $book->loadImage($this->container->getParameter('taller.directory.images'));
+
             $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($entity);
+            $em->persist($book);
             $em->flush();
 
             return $this->redirect($this->generateUrl('book_index'));
         }else{
             return $this->render('BookBundle:Book:add.html.twig', array(
-                'entity' => $entity,
+                'book' => $book,
                 'form'   => $form->createView()
             ));
         }

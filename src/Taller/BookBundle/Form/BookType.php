@@ -14,6 +14,7 @@ class BookType extends AbstractType
             ->add('author')
             ->add('summary')
             ->add('edition_date', 'birthday')
+            ->add('image', 'file')
         ;
     }
 

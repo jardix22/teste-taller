@@ -3,6 +3,7 @@
 namespace Taller\BookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Book
@@ -48,6 +49,14 @@ class Book
      * @ORM\Column(name="edition_date", type="date")
      */
     private $editionDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     * @Assert\Image(maxSize = "500k")
+     */
+    private $image;
 
 
     /**
@@ -150,5 +159,45 @@ class Book
     public function getEditionDate()
     {
         return $this->editionDate;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Book
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Load Image
+     * @param string $directory
+     *   Is the absolute directory path where uploaded images should be saved
+     *
+     */
+    public function loadImage($directory)
+    {
+        if (null === $this->image) {
+            return;
+        }
+
+        $nameImageFile = uniqid('taller-').'-foto1.jpg';
+        $this->image->move($directory, $nameImageFile);
+        $this->setImage($nameImageFile);
     }
 }
