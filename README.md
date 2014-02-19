@@ -1,7 +1,7 @@
 teste-taller
 ============
 
-Software para cadastro de livros. [Symfony2]
+Software to registration books. [Symfony2]
 
 Stories
 ========
@@ -15,3 +15,9 @@ Stories
 Routes
 ======
 
+* book_index      /books              GET
+* book_add        /book/add           GET
+* book_edit       /books/{id}/edit    GET
+* book_create     /book               POST
+* book_update     /books/{id}         POST
+* book_delete     /books/{id}/delete  POST

@@ -1,14 +1,18 @@
-<h2>Lista de Libros</h2>
+{% extends '::base.html.twig' %}
 
-<article>
-    {% for book in books %}
-    <section class="book">
-        <h3>{{ book.title }} <small>{{ book.author }} - {{ book.editionDate|date("m/d/Y") }}</small></h3>
-        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
-        <p>{{ book.summary }}</p>
-        <footer>
-            <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit">Editar</a>
-        </footer>
-    </section>
-    {% endfor %}
-</article>
+{% block body %}
+    <h2>Book list</h2>
+
+    <article>
+        {% for book in books %}
+        <section class="book">
+            <h3>{{ book.title }} <small>{{ book.author }} - {{ book.editionDate|date("m/d/Y") }}</small></h3>
+            <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+            <p>{{ book.summary }}</p>
+            <footer>
+                <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit">Editar</a>
+            </footer>
+        </section>
+        {% endfor %}
+    </article>
+{% endblock %}
