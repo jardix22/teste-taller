@@ -30,7 +30,8 @@ class OrderController extends Controller
         $query = $em->createQuery(
             'SELECT p
             FROM BookBundle:Book p
-            WHERE p.title like :letter'
+            WHERE p.title like :letter
+            ORDER BY p.editionDate DESC'
         )->setParameter('letter', $letter.'%');
 
         $books = $query->getResult();

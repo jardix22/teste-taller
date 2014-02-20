@@ -5,6 +5,7 @@ namespace Taller\BookBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Taller\BookBundle\Entity\Book as Book;
 use Taller\BookBundle\Form\BookType;
+use Taller\BookBundle\Form\BookEditType;
 
 /**
  * Book controller.
@@ -18,8 +19,16 @@ class BookController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $books = $em->getRepository('Taller\BookBundle\Entity\Book')->findAll();
+        $repository = $this->getDoctrine()->getRepository('BookBundle:Book');
+
+
+        $query = $repository->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            //->setMaxResults(2)
+            ->getQuery();
+
+        $books = $query->getResult();
+
         return $this->render(
                 'BookBundle:Book:index.html.twig',
                 array(
@@ -64,7 +73,7 @@ class BookController extends Controller
             throw $this->createNotFoundException('the Book does not exist.');
         }
 
-        $editForm = $this->createForm(new BookType(), $book);
+        $editForm = $this->createForm(new BookEditType(), $book);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BookBundle:Book:edit.html.twig', array(
@@ -119,7 +128,7 @@ class BookController extends Controller
             throw $this->createNotFoundException('Book doest not exist.');
         }
 
-        $editForm = $this->createForm(new BookType(), $book);
+        $editForm = $this->createForm(new BookEditType(), $book);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();

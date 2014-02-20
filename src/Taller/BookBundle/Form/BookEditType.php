@@ -5,7 +5,7 @@ namespace Taller\BookBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class BookType extends AbstractType
+class BookEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -14,7 +14,7 @@ class BookType extends AbstractType
             ->add('author')
             ->add('summary')
             ->add('edition_date', 'birthday')
-            ->add('image', 'file', array('data_class' => null))
+            ->add('image', 'file', array('required' => false, 'data_class' => null))
         ;
     }
 
