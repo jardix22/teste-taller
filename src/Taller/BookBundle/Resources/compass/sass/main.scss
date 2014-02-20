@@ -1,14 +1,6 @@
-// Set the global compass vars.
-// $legacy-support-for-ie6: false;
-// $legacy-support-for-ie7: false;
-//$legacy-support-for-ie8: true;
-// $legacy-support-for-mozilla: false;
-// Import the normalize plugin
-
-// @import "normalize";
 @import "compass/css3";
 
-//-- header styles
+//-- Main Header styles -- //
 
 $header-color: #497bad;
 #header{
@@ -44,7 +36,7 @@ $header-color: #497bad;
     display: inline-block;
     margin-bottom: 10px;
     margin-top: 5px;
-    padding: 5px;
+    padding: 5px 10px 5px 5px;
     position: relative;
     width: 100%;
 
@@ -77,11 +69,36 @@ span.datetime{
 
 span.button-box{
     position: absolute;
-    right: 10px;
+    right: 15px;
     bottom: 10px;
 }
 
+// -- Navigation letter style -- //
+
+.letter-nav{
+    margin-top: 20px;
+    span{
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+.letter-list {
+    margin-bottom: 0px;
+
+    & .active{
+        a{
+            font-weight: bolder;
+            color: black;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
 //--  help tools
+
 .inline-box{
     display: inline-block;
 }

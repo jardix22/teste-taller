@@ -2586,6 +2586,312 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
+/* line 7, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel {
+  margin-bottom: 20px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* line 16, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-body {
+  padding: 15px;
+}
+/* line 21, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-body:before, .panel-body:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+/* line 25, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-body:after {
+  clear: both;
+}
+
+/* line 28, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .list-group {
+  margin-bottom: 0;
+}
+/* line 31, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .list-group .list-group-item {
+  border-width: 1px 0;
+}
+/* line 35, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .list-group .list-group-item:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+/* line 39, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .list-group .list-group-item:last-child {
+  border-bottom: 0;
+}
+
+/* line 47, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+/* line 60, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .table,
+.panel > .table-responsive {
+  margin-bottom: 0;
+}
+/* line 64, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .panel-body + .table,
+.panel > .panel-body + .table-responsive {
+  border-top: 1px solid #dddddd;
+}
+/* line 68, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .table-bordered,
+.panel > .table-responsive > .table-bordered {
+  border: 0;
+}
+/* line 75, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .table-bordered > thead > tr > th:first-child,
+.panel > .table-bordered > thead > tr > td:first-child,
+.panel > .table-bordered > tbody > tr > th:first-child,
+.panel > .table-bordered > tbody > tr > td:first-child,
+.panel > .table-bordered > tfoot > tr > th:first-child,
+.panel > .table-bordered > tfoot > tr > td:first-child,
+.panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+/* line 79, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .table-bordered > thead > tr > th:last-child,
+.panel > .table-bordered > thead > tr > td:last-child,
+.panel > .table-bordered > tbody > tr > th:last-child,
+.panel > .table-bordered > tbody > tr > td:last-child,
+.panel > .table-bordered > tfoot > tr > th:last-child,
+.panel > .table-bordered > tfoot > tr > td:last-child,
+.panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}
+/* line 84, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel > .table-bordered > thead > tr:last-child > th, .panel > .table-bordered > thead > tr:last-child > td,
+.panel > .table-bordered > tbody > tr:last-child > th,
+.panel > .table-bordered > tbody > tr:last-child > td,
+.panel > .table-bordered > tfoot > tr:last-child > th,
+.panel > .table-bordered > tfoot > tr:last-child > td,
+.panel > .table-responsive > .table-bordered > thead > tr:last-child > th,
+.panel > .table-responsive > .table-bordered > thead > tr:last-child > td,
+.panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+.panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+.panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+.panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+  border-bottom: 0;
+}
+
+/* line 94, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+/* line 99, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-heading > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+
+/* line 105, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+/* line 109, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-title > a {
+  color: inherit;
+}
+
+/* line 115, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-footer {
+  padding: 10px 15px;
+  background-color: whitesmoke;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+/* line 130, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+/* line 134, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-group .panel + .panel {
+  margin-top: 5px;
+}
+/* line 139, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-group .panel-heading {
+  border-bottom: 0;
+}
+/* line 141, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-group .panel-heading + .panel-collapse .panel-body {
+  border-top: 1px solid #dddddd;
+}
+/* line 145, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-group .panel-footer {
+  border-top: 0;
+}
+/* line 147, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-group .panel-footer + .panel-collapse .panel-body {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* line 155, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-default {
+  border-color: #dddddd;
+}
+/* line 401, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-default > .panel-heading {
+  color: #333333;
+  background-color: whitesmoke;
+  border-color: #dddddd;
+}
+/* line 406, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #dddddd;
+}
+/* line 409, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-default > .panel-heading > .dropdown .caret {
+  border-color: #333333 transparent;
+}
+/* line 414, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-default > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #dddddd;
+}
+
+/* line 158, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-primary {
+  border-color: #428bca;
+}
+/* line 401, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-primary > .panel-heading {
+  color: white;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+/* line 406, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-primary > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #428bca;
+}
+/* line 409, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-primary > .panel-heading > .dropdown .caret {
+  border-color: white transparent;
+}
+/* line 414, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-primary > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #428bca;
+}
+
+/* line 161, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-success {
+  border-color: #d6e9c6;
+}
+/* line 401, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-success > .panel-heading {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+/* line 406, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-success > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #d6e9c6;
+}
+/* line 409, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-success > .panel-heading > .dropdown .caret {
+  border-color: #468847 transparent;
+}
+/* line 414, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-success > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #d6e9c6;
+}
+
+/* line 164, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-warning {
+  border-color: #faebcc;
+}
+/* line 401, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-warning > .panel-heading {
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+/* line 406, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-warning > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #faebcc;
+}
+/* line 409, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-warning > .panel-heading > .dropdown .caret {
+  border-color: #c09853 transparent;
+}
+/* line 414, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-warning > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #faebcc;
+}
+
+/* line 167, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-danger {
+  border-color: #ebccd1;
+}
+/* line 401, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-danger > .panel-heading {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+/* line 406, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-danger > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #ebccd1;
+}
+/* line 409, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-danger > .panel-heading > .dropdown .caret {
+  border-color: #b94a48 transparent;
+}
+/* line 414, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-danger > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #ebccd1;
+}
+
+/* line 170, ../../compass/sass/sass-bootstrap/_panels.scss */
+.panel-info {
+  border-color: #bce8f1;
+}
+/* line 401, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-info > .panel-heading {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+/* line 406, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-info > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #bce8f1;
+}
+/* line 409, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-info > .panel-heading > .dropdown .caret {
+  border-color: #3a87ad transparent;
+}
+/* line 414, ../../compass/sass/sass-bootstrap/_mixins.scss */
+.panel-info > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #bce8f1;
+}
+
 /* line 21, ../../compass/sass/sass-bootstrap/_mixins.scss */
 .clearfix:before, .clearfix:after {
   content: " ";
