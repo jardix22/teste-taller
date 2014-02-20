@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}List Book{% endblock %}
+
+{% block article %}
+    <nav class="col-lg-12">
+        <div class="panel panel-default letter-nav">
+            <div class="panel-body">
+                <ul class="list-inline list-unstyled letter-list">
+                    {% for letter in 'a'..'z' %}
+                    <li>
+                        <a href="{{ path('book_order_title', {'letter': letter }) }}">{{ letter|upper }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="page-header col-lg-12">
+        <h2>
+            Book list
+            <di class="pull-right">
+                <a href="{{ path('book_add') }}" class="btn btn-sm btn-info">Add Book's</a>
+            </di>
+        </h2>
+    </header>
+    <section>
+        <ul class="book-list">
+            {% for book in books %}
+            <li class="col-lg-12">
+                <div class="book-item">
+                    <div class="book-image">
+                        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+                    </div>
+                    <h4>{{ book.title }} <small><strong>{{ book.author }}</strong></small></h4>
+                    <p>{{ book.summary }}</p>
+                    <span class="datetime">{{ book.editionDate|date("m/d/Y") }}</span>
+                    <span class="button-box">
+                        <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-sm btn-success">Edit</a>
+                    </span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

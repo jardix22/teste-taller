@@ -9,3 +9,8 @@
 /vendor/
 /bin/
 /composer.phar
+
+### Static assets pipeline artifacts
+
+*.scssc
+/src/Taller/BookBundle/Resources/compass/.sass-cache/

@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}List Book{% endblock %}
+
+{% block article %}
+
+    <nav class="col-lg-12">
+        <div class="panel panel-default letter-nav">
+            <div class="panel-body">
+                <ul class="list-inline list-unstyled letter-list">
+                    {% for letter in 'a'..'z' %}
+                    <li class="{{ letter == letter_title ? 'active': ''}}">
+                        <a href="{{ path('book_order_title', {'letter': letter }) }}">{{ letter|upper }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header col-lg-12">
+        <h2>
+            Book list <small>&raquo; Title: {{ letter_title|upper }}</small>
+            <di class="pull-right">
+                <a href="{{ path('book_add') }}" class="btn btn-sm btn-info">Add Book's</a>
+            </di>
+        </h2>
+    </header>
+    <section>
+        <ul class="book-list">
+            {% if books|length > 0 %}
+                {% for book in books %}
+                <li class="col-lg-12">
+                    <div class="book-item">
+                        <div class="book-image">
+                            <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+                        </div>
+                        <h4>{{ book.title }} <small><strong>{{ book.author }}</strong></small></h4>
+                        <p>{{ book.summary }}</p>
+                        <span class="datetime">{{ book.editionDate|date("m/d/Y") }}</span>
+                        <span class="button-box">
+                            <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-sm btn-success">Edit</a>
+                        </span>
+                    </div>
+                </li>
+                {% endfor %}
+            {% else %}
+                <li class="col-lg-12">
+                    <div class="alert alert-info">
+                        <p>
+                            Not found results in this category.
+                        </p>
+                    </div>
+                </li>
+            {% endif %}
+
+        </ul>
+    </section>
+{% endblock %}

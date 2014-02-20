@@ -1,0 +1,41 @@
+book_index:
+    pattern:  /books
+    defaults: { _controller: BookBundle:Book:index }
+    requirements:
+        _method: GET
+
+book_add:
+    pattern: /book/add
+    defaults: { _controller: BookBundle:Book:add }
+    requirements:
+        _method: GET
+
+book_edit:
+    pattern:  /books/{id}/edit
+    defaults: { _controller: BookBundle:Book:edit }
+    requirements:
+        _method: GET
+
+book_create:
+   pattern:  /books
+   defaults: { _controller: BookBundle:Book:create }
+   requirements:
+    _method: POST
+
+book_update:
+    pattern:  /books/{id}
+    defaults: { _controller: BookBundle:Book:update }
+    requirements:
+        _method: POST
+
+book_delete:
+    pattern: /books/{id}/delete
+    defaults: { _controller: BookBundle:Book:delete }
+    requirements:
+        _method: POST
+
+book_order_title:
+    pattern: /books/title/{letter}
+    defaults: { _controller: BookBundle:Order:title }
+    requirements:
+        _method: GET
