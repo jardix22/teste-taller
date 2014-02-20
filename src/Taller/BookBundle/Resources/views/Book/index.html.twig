@@ -1,14 +1,43 @@
-<h2>Lista de Libros</h2>
+{% extends '::base.html.twig' %}
 
-<article>
-    {% for book in books %}
-    <section class="book">
-        <h3>{{ book.title }} <small>{{ book.author }} - {{ book.editionDate|date("m/d/Y") }}</small></h3>
-        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
-        <p>{{ book.summary }}</p>
-        <footer>
-            <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit">Editar</a>
-        </footer>
+{% block title %}List Book{% endblock %}
+
+{% block article %}
+    <nav>
+        <ul>
+            {% for letter in 'a'|upper..'z'|upper %}
+            <li class="inline-box">
+                <a href="{{ path('book_order_title', {'letter': letter }) }}">{{ letter }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <header class="page-header col-lg-12">
+        <h2>
+            Book list
+            <di class="pull-right">
+                <a href="{{ path('book_add') }}" class="btn btn-sm btn-info">Add Book's</a>
+            </di>
+        </h2>
+    </header>
+    <section>
+        <ul class="book-list">
+            {% for book in books %}
+            <li class="col-lg-6">
+                <div class="book-item">
+                    <div class="book-image">
+                        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+                    </div>
+
+                    <h4>{{ book.title }} <small></small></h4>
+                    <p>{{ book.author }}</p>
+                    <span class="datetime">{{ book.editionDate|date("m/d/Y") }}</span>
+                    <span class="button-box">
+                        <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-sm btn-success">Edit</a>
+                    </span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
     </section>
-    {% endfor %}
-</article>
+{% endblock %}

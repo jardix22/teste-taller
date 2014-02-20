@@ -1,0 +1,87 @@
+// Set the global compass vars.
+// $legacy-support-for-ie6: false;
+// $legacy-support-for-ie7: false;
+//$legacy-support-for-ie8: true;
+// $legacy-support-for-mozilla: false;
+// Import the normalize plugin
+
+// @import "normalize";
+@import "compass/css3";
+
+//-- header styles
+
+$header-color: #497bad;
+#header{
+    background-color: $header-color;
+    h1{
+        margin: 15px 0px 15px -15px;
+        a{
+            color: white;
+            font:{
+                weight: bolder;
+                size: 0.8em;
+            }
+            @include text-shadow(rgb(13, 108, 252) 0px 0px 1px);
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+//-- Book styles
+
+.book-list{
+    padding-left: 0px;
+    list-style: none;
+}
+
+.book-item{
+    @include box-shadow(darken(#cfcfcf, 5%) 0px 0px 2px);
+
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+
+    h4{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #127EE9;
+    }
+}
+
+.book-image{
+    float: left;
+    margin-right: 10px;
+
+    img{
+        width: 100px;
+        height: 150px;
+    }
+}
+
+.book-content{
+    float: left;
+    position: relative;
+}
+
+span.datetime{
+    color: #FF7A00;
+    font-size: 0.9em;
+}
+
+span.button-box{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+//--  help tools
+.inline-box{
+    display: inline-block;
+}

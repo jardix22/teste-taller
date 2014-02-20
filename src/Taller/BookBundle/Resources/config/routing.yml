@@ -10,12 +10,6 @@ book_add:
     requirements:
         _method: GET
 
-book_show:
-    pattern:  /books/{id}
-    defaults: { _controller: BookBundle:Book:show }
-    requirements:
-        _method: GET
-
 book_edit:
     pattern:  /books/{id}/edit
     defaults: { _controller: BookBundle:Book:edit }
@@ -39,3 +33,9 @@ book_delete:
     defaults: { _controller: BookBundle:Book:delete }
     requirements:
         _method: POST
+
+book_order_title:
+    pattern: /books/title/{letter}
+    defaults: { _controller: BookBundle:Order:title }
+    requirements:
+        _method: GET

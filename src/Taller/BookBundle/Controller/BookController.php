@@ -18,7 +18,7 @@ class BookController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $books = $em->getRepository('Taller\BookBundle\Entity\Book')->findAll();
         return $this->render(
                 'BookBundle:Book:index.html.twig',
@@ -69,8 +69,8 @@ class BookController extends Controller
 
         return $this->render('BookBundle:Book:edit.html.twig', array(
             'book' => $book,
-            'delete_form' => $deleteForm->createView(),
             'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -92,7 +92,7 @@ class BookController extends Controller
             // Copy the image uploaded and save the directory path
             $book->loadImage($this->container->getParameter('taller.directory.images'));
 
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($book);
             $em->flush();
 
@@ -120,6 +120,7 @@ class BookController extends Controller
         }
 
         $editForm = $this->createForm(new BookType(), $book);
+        $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
 
@@ -150,7 +151,8 @@ class BookController extends Controller
 
         return $this->render('BookBundle:Book:edit.html.twig', array(
             'book' => $book,
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -183,7 +185,7 @@ class BookController extends Controller
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
-            ->getForm()
+            ->getForm();
         ;
     }
 }
