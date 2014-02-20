@@ -6,29 +6,52 @@
 // Import the normalize plugin
 
 // @import "normalize";
+@import "compass/css3";
+
+//-- header styles
 
 $header-color: #497bad;
-
 #header{
     background-color: $header-color;
-    height: 5px;
+    h1{
+        margin: 15px 0px 15px -15px;
+        a{
+            color: white;
+            font:{
+                weight: bolder;
+                size: 0.8em;
+            }
+            @include text-shadow(rgb(13, 108, 252) 0px 0px 1px);
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
 }
 
+//-- Book styles
 
 .book-list{
     padding-left: 0px;
+    list-style: none;
 }
 
 .book-item{
-    border: 1px solid #aaa;
+    @include box-shadow(darken(#cfcfcf, 5%) 0px 0px 2px);
+
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
     display: inline-block;
-    list-style: none;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 5px;
     position: relative;
     width: 100%;
 
-    .edit-button{
-
+    h4{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: #127EE9;
     }
 }
 
@@ -37,7 +60,28 @@ $header-color: #497bad;
     margin-right: 10px;
 
     img{
-        width: 150px;
+        width: 100px;
+        height: 150px;
     }
 }
 
+.book-content{
+    float: left;
+    position: relative;
+}
+
+span.datetime{
+    color: #FF7A00;
+    font-size: 0.9em;
+}
+
+span.button-box{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+//--  help tools
+.inline-box{
+    display: inline-block;
+}

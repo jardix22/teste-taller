@@ -33,3 +33,9 @@ book_delete:
     defaults: { _controller: BookBundle:Book:delete }
     requirements:
         _method: POST
+
+book_order_title:
+    pattern: /books/title/{letter}
+    defaults: { _controller: BookBundle:Order:title }
+    requirements:
+        _method: GET

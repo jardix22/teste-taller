@@ -3,26 +3,39 @@
 {% block title %}List Book{% endblock %}
 
 {% block article %}
-    <h2>
-        Book list
-        <di class="pull-right">
-            <a href="{{ path('book_add') }}" class="btn btn-sm btn-info">Add Book's</a>
-        </di>
-    </h2>
-    <section class="col-log-12">
+    <nav>
+        <ul>
+            {% for letter in 'a'|upper..'z'|upper %}
+            <li class="inline-box">
+                <a href="{{ path('book_order_title', {'letter': letter }) }}">{{ letter }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <header class="page-header col-lg-12">
+        <h2>
+            Book list
+            <di class="pull-right">
+                <a href="{{ path('book_add') }}" class="btn btn-sm btn-info">Add Book's</a>
+            </di>
+        </h2>
+    </header>
+    <section>
         <ul class="book-list">
             {% for book in books %}
-            <li class="book-item">
-                <div class="book-image">
-                    <img src="{{ asset('uploads/images/' ~ book.image ) }}">
-                </div>
-                <h3>{{ book.title }} <small>{{ book.author }}</small></h3>
-                <p>{{ book.summary }}</p>
+            <li class="col-lg-6">
+                <div class="book-item">
+                    <div class="book-image">
+                        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+                    </div>
 
-                <span>{{ book.editionDate|date("m/d/Y") }}</span>
-                <footer>
-                    <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-xs btn-primary">Editar</a>
-                </footer>
+                    <h4>{{ book.title }} <small></small></h4>
+                    <p>{{ book.author }}</p>
+                    <span class="datetime">{{ book.editionDate|date("m/d/Y") }}</span>
+                    <span class="button-box">
+                        <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-sm btn-success">Edit</a>
+                    </span>
+                </div>
             </li>
             {% endfor %}
         </ul>

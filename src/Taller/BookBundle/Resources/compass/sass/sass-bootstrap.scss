@@ -62,3 +62,14 @@
 // Utility classes
 @import "sass-bootstrap/utilities"; // Has to be last to override when necessary
 @import "sass-bootstrap/responsive-utilities";
+
+.form-group > input[type="file"]{
+    @extend .form-control;
+}
+
+.form-group select{
+    @extend .form-control;
+    width: 80px;
+    display: inline-block;
+    margin-right: 5px;
+}

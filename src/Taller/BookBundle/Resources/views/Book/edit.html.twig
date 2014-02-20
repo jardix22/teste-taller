@@ -3,13 +3,25 @@
 {% block title %}Edit Book{% endblock %}
 
 {% block article %}
-    <h2>Edit Book</h2>
+    <header class="page-header col-lg-12">
+        <h2>
+            Edit Book
+            <di class="pull-right">
+                <form action="{{ path('book_delete', { 'id': book.id }) }}" method="post" class="inline-box">
+                {{ form_widget(delete_form) }}
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+                <a href="{{ path('book_index') }}" class="btn btn-sm btn-default">Back to list</a>
+
+            </di>
+        </h2>
+    </header>
 
     <section class="col-lg-12">
         <form action="{{ path('book_update', {'id': book.id }) }}" method="post" {{ form_enctype(edit_form) }} accept-charset="utf-8">
 
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-md-8 col-sm-7">
                     <div class="form-group">
                         {{ form_label(edit_form.title) }}
                         {{ form_widget(edit_form.title, { 'attr': {'class': 'form-control'} }) }}
@@ -36,12 +48,11 @@
                         <span class="help-block">Maximum size: 500 KB.</span>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-4 col-sm-5">
                     <div>
-                        {{ form_label(edit_form.image, 'Image') }}
                         {{ form_errors(edit_form.image) }}
 
-                        <img src="{{ asset('uploads/images/' ~ book.image ) }}" />
+                        <img src="{{ asset('uploads/images/' ~ book.image ) }}"  class="img-responsive"/>
                     </div>
                 </div>
                 {{ form_rest(edit_form) }}
@@ -50,14 +61,5 @@
                 <input type="submit" value="Guardar" class="btn btn-primary">
             </div>
         </form>
-
-        <ul>
-            <li>
-                <a href="{{ path('book_index') }}"> Back to list </a>
-            </li>
-            <li>
-
-            </li>
-        </ul>
     </section>
 {% endblock %}
