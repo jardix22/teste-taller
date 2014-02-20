@@ -12,4 +12,4 @@
 
 ### Static assets pipeline artifacts
 *.scssc
-'git branch -D feature/feature-compass'
+/src/Taller/BookBundle/Resources/compass/.sass-cache/
