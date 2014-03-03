@@ -26,21 +26,31 @@
     </header>
     <section>
         <ul class="book-list">
-            {% for book in books %}
-            <li class="col-lg-12">
-                <div class="book-item">
-                    <div class="book-image">
-                        <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+            {% if books|length > 0 %}
+                {% for book in books %}
+                <li class="col-lg-12">
+                    <div class="book-item">
+                        <div class="book-image">
+                            <img src="{{ asset('uploads/images/' ~ book.image ) }}">
+                        </div>
+                        <h4>{{ book.title }} <small><strong>{{ book.author }}</strong></small></h4>
+                        <p>{{ book.summary }}</p>
+                        <span class="datetime">{{ book.editionDate|date("m/d/Y") }}</span>
+                        <span class="button-box">
+                            <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-sm btn-success">Edit</a>
+                        </span>
                     </div>
-                    <h4>{{ book.title }} <small><strong>{{ book.author }}</strong></small></h4>
-                    <p>{{ book.summary }}</p>
-                    <span class="datetime">{{ book.editionDate|date("m/d/Y") }}</span>
-                    <span class="button-box">
-                        <a href="{{ path('book_edit', { 'id': book.id }) }}" title="Edit" class="btn btn-sm btn-success">Edit</a>
-                    </span>
-                </div>
-            </li>
-            {% endfor %}
+                </li>
+                {% endfor %}
+            {% else %}
+                <li class="col-lg-12">
+                    <div class="alert alert-danger">
+                        <p>
+                            Sorry. No books registered.
+                        </p>
+                    </div>
+                </li>
+            {% endif %}
         </ul>
     </section>
 {% endblock %}
