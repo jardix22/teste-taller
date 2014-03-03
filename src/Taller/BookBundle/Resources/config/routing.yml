@@ -1,3 +1,9 @@
+index:
+    pattern:  /
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: book_index, permanent: true }
+    requirements:
+        _method: GET
+
 book_index:
     pattern:  /books
     defaults: { _controller: BookBundle:Book:index }
