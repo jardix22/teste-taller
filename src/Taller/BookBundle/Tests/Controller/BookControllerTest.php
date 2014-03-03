@@ -37,13 +37,13 @@ class BookControllerTest extends WebTestCase
         return array(
             array(
                 array(
-                    'taller_bookbundle_booktype[title]' => 'book-'.uniqid(),
-                    'taller_bookbundle_booktype[author]' => 'author-demo',
-                    'taller_bookbundle_booktype[summary]' => 'some text to demo',
-                    'taller_bookbundle_booktype[edition_date][day]' => 21,
-                    'taller_bookbundle_booktype[edition_date][month]' => 01,
-                    'taller_bookbundle_booktype[edition_date][year]' => 2012,
-                    'taller_bookbundle_booktype[image]' => $fixtures.'/book1.jpg'
+                    'taller_bookbundle_booktype[title]' => 'The Lost Symbol '.uniqid(),
+                    'taller_bookbundle_booktype[author]' => 'Dan Brown',
+                    'taller_bookbundle_booktype[summary]' => 'The Lost Symbol is a 2009 novel written by American writer Dan Brown. It is a thriller set in Washington, D.C., after the events of The Da Vinci Code, and relies on Freemasonry for both its recurring theme and its major characters.',
+                    'taller_bookbundle_booktype[edition_date][day]' => 09,
+                    'taller_bookbundle_booktype[edition_date][month]' => 15,
+                    'taller_bookbundle_booktype[edition_date][year]' => 2009,
+                    'taller_bookbundle_booktype[image]' => $fixtures.'/book3.jpg'
                 )
             ),
             array(
