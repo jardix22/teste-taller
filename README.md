@@ -21,3 +21,4 @@ Routes
 * book_create     /book               POST
 * book_update     /books/{id}         POST
 * book_delete     /books/{id}/delete  POST
+* book_order_title     /books/title/{letter}  GET
